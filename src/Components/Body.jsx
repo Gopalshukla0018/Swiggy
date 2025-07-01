@@ -1,6 +1,8 @@
 import RestaurentCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 // This is the body component which contains the search bar and restaurant cards
 
 const Body = () => {
@@ -24,6 +26,17 @@ const Body = () => {
     setListofrestaurant(restaurant);
     setfilteredRestaurant(restaurant);
   };
+
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) {
+    return (
+      <>
+      <p>Looks like you are offline, please check your internet connection</p>;
+      <Shimmer/>
+      </>
+      
+    );
+  }
 
   // if(Listofrestaurant.length === 0) {
   //   return <Shimmer />;
@@ -74,7 +87,12 @@ const Body = () => {
       <div className="res-container">
         {/* restaurent card */}
         {filteredRestaurant.map((restaurant) => (
-          <RestaurentCard key={restaurant.info.id} resData={restaurant} />
+          <Link
+            key={restaurant.info.id}
+            to={"/restaurant/" + restaurant.info.id}
+          >
+            <RestaurentCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>

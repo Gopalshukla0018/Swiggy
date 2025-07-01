@@ -1,9 +1,11 @@
 import logo from "../assets/logo.png";
 import { useState } from "react";
-import { Link } from "react-router-dom";  
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [loginBtn, setloginBtn] = useState("Login");
+  const onlineStatus = useOnlineStatus();
 
   return (
     <div className="header">
@@ -12,15 +14,29 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li> <Link to="/"> Home</Link></li>
-          <li> <Link to="/about">  About  </Link>
-            </li>
-          <li> <Link to="/contact">  Contact Us  </Link></li>
-          <li> <Link to="/cart">  Cart  </Link> </li>
+          <li>Online Status: {onlineStatus ? "✅" : "❌"}</li>
+          <li>
+            {" "}
+            <Link to="/"> Home</Link>
+          </li>
+          <li>
+            {" "}
+            <Link to="/about"> About </Link>
+          </li>
+          <li>
+            {" "}
+            <Link to="/contact"> Contact Us </Link>
+          </li>
+          <li>
+            {" "}
+            <Link to="/cart"> Cart </Link>{" "}
+          </li>
           <button
             className="login-logout-button"
             onClick={() => {
-              loginBtn === "Login" ? setloginBtn("Logout") : setloginBtn("Login");
+              loginBtn === "Login"
+                ? setloginBtn("Logout")
+                : setloginBtn("Login");
             }}
           >
             {loginBtn}
