@@ -22,19 +22,20 @@ const Body = () => {
     const json = await data.json();
     console.log(json);
     const restaurant =
-      json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+      json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
     setListofrestaurant(restaurant);
     setfilteredRestaurant(restaurant);
+    console.log(restaurant);
   };
 
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false) {
     return (
       <>
-      <p>Looks like you are offline, please check your internet connection</p>;
-      <Shimmer/>
+        <p>Looks like you are offline, please check your internet connection</p>
+        ;
+        <Shimmer />
       </>
-      
     );
   }
 
@@ -48,9 +49,10 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search-container">
+      <div className="flex ">
+        <div className="flex items-center m-4 p-4flex ">
           <input
+            className="p-2 m-2 border border-black rounded-lg"
             type="text"
             placeholder="Search Restaurants..."
             value={searchText}
@@ -60,6 +62,7 @@ const Body = () => {
           />
 
           <button
+            className="px-4 py-3 m-4 bg-green-100 rounded-lg cursor-pointer hover:bg-green-200"
             onClick={() => {
               const filteredres = Listofrestaurant.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -71,20 +74,22 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filteredList = Listofrestaurant.filter(
-              (res) => res.info.avgRating > 4.3
-            );
-            setfilteredRestaurant(filteredList);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+        <div className="p-4 m-4 ">
+          <button
+            className="px-4 py-2 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200"
+            onClick={() => {
+              const filteredList = Listofrestaurant.filter(
+                (res) => res.info.avgRating > 4.3
+              );
+              setfilteredRestaurant(filteredList);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
 
-      <div className="res-container">
+      <div className="flex flex-wrap justify-center gap-4 ">
         {/* restaurent card */}
         {filteredRestaurant.map((restaurant) => (
           <Link
