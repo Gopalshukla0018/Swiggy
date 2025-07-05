@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import MockRestaurants from "../utils/MockRestaurants";
+// import MockRestaurants from "../utils/MockRestaurants";
 // This is the body component which contains the search bar and restaurant cards
 
 const Body = () => {
@@ -12,26 +12,27 @@ const Body = () => {
   const [filteredRestaurant, setfilteredRestaurant] = useState([]);
 
   useEffect(() => {
-    // fetchData();
-    setListofrestaurant(MockRestaurants);
-    setfilteredRestaurant(MockRestaurants);
-    // console.log(mockRestaurants);
+    fetchData();
+    // setListofrestaurant(restaurants);
+    // setfilteredRestaurant(restaurants);
+    // // console.log(mockRestaurants);
     // console.log(Listofrestaurant);
   }, []);
-  // const fetchData = async () => {
-  //   const data = await fetch(
-  //     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.61450&lng=77.30630&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-  //     // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4552521&lng=77.5046101&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-  //   );
+  const fetchData = async () => {
+    const data = await fetch(
+      // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.61450&lng=77.30630&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4552521&lng=77.5046101&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "http://localhost:3000/restaurants"
+    );
 
-  //   const json = await data.json();
-  //   console.log(json);
-  //   const restaurant =
-  //     json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
-  //   setListofrestaurant(restaurant);
-  //   setfilteredRestaurant(restaurant);
-  //   console.log(restaurant);
-  // };
+    const json = await data.json();
+    console.log(json);
+    const restaurant = json || [];
+    // json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+    setListofrestaurant(restaurant);
+    setfilteredRestaurant(restaurant);
+    console.log(restaurant);
+  };
 
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false) {
@@ -46,7 +47,6 @@ const Body = () => {
 
   // if(Listofrestaurant.length === 0) {
   //   return <Shimmer />;
-  //
 
   // The previous approach (using if and return) works, but it's not the best practice.
   // It's better to use the ternary operator below because it's more concise and improves readability.
