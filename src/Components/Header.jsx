@@ -15,7 +15,7 @@ const Header = () => {
       </div>
       {/* Hamburger Icon for mobile */}
       <button
-        className="flex flex-col items-center justify-center w-10 h-10 md:hidden focus:outline-none"
+        className="flex flex-col items-center justify-center w-10 h-10 cursor-pointer md:hidden focus:outline-none"
         onClick={() => setMenuOpen((prev) => !prev)}
         aria-label="Toggle menu"
       >
