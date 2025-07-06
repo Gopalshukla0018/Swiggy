@@ -52,11 +52,11 @@ const Body = () => {
   return Listofrestaurant.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="flex ">
-        <div className="flex items-center m-4 p-4flex ">
+    <div className="max-w-screen-xl px-2 mx-auto body sm:px-4 md:px-8">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+        <div className="flex items-center p-4 m-4">
           <input
-            className="p-2 m-2 border border-black rounded-lg"
+            className="w-full max-w-xs p-2 m-2 border border-black rounded-lg"
             type="text"
             placeholder="Search Restaurants..."
             value={searchText}
@@ -64,7 +64,6 @@ const Body = () => {
               setsearchText(e.target.value);
             }}
           />
-
           <button
             className="px-4 py-3 m-4 bg-green-100 rounded-lg cursor-pointer hover:bg-green-200"
             onClick={() => {
@@ -78,7 +77,7 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="p-4 m-4 ">
+        <div className="flex justify-end p-4 m-4">
           <button
             className="px-4 py-2 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200"
             onClick={() => {
@@ -92,8 +91,7 @@ const Body = () => {
           </button>
         </div>
       </div>
-
-      <div className="grid justify-center grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid justify-center grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {/* restaurent card */}
         {filteredRestaurant.map((restaurant) => (
           <Link
