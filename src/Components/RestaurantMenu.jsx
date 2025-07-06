@@ -15,15 +15,15 @@ const RestaurantMenu = () => {
   const { name, cuisines, costForTwoMessage } =
     resInfo?.[0]?.data.cards?.[2]?.card?.card?.info || {};
   const itemCards =
-    resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
-      ?.card.itemCards || [];
+    resInfo?.[0]?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
+      ?.card?.card.itemCards || [];
 
   const categories =
-    resInfo?.[0]?.data.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+    resInfo?.[0]?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
       (c) => {
         return (
           c.card?.card?.["@type"] ===
-            "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" 
+          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
           // c.card?.card?.["@type"] ===
           //   "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
         );
