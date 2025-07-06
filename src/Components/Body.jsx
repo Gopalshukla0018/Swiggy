@@ -15,7 +15,7 @@ const Body = () => {
     fetchData();
     // setListofrestaurant(restaurants);
     // setfilteredRestaurant(restaurants);
-    // // console.log(mockRestaurants);
+    // console.log(mockRestaurants);
     // console.log(Listofrestaurant);
   }, []);
   const fetchData = async () => {
