@@ -13,13 +13,13 @@ const RestaurantMenu = () => {
   }
 
   const { name, cuisines, costForTwoMessage } =
-    resInfo?.cards?.[2]?.card?.card?.info || {};
+    resInfo?.[0]?.data.cards?.[2]?.card?.card?.info || {};
   const itemCards =
     resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
       ?.card.itemCards || [];
 
   const categories =
-    resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+    resInfo?.[0]?.data.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
       (c) => {
         return (
           c.card?.card?.["@type"] ===
