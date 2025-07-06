@@ -14,7 +14,7 @@ const RestaurentCard = (props) => {
     deliveryTime,
   } = resData.info;
   return (
-    <div className="flex flex-col items-stretch w-full max-w-xs p-4 m-4 transition-transform duration-200 bg-white rounded-lg shadow sm:max-w-sm md:max-w-xs hover:scale-105">
+    <div className="flex flex-col items-stretch w-full p-4 transition-transform duration-200 bg-white rounded-lg shadow hover:scale-105">
       <img
         className="object-cover w-full h-40 rounded res-logo"
         src={CDN_URL + cloudinaryImageId}
