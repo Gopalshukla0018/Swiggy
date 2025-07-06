@@ -21,7 +21,7 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(
       // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.61450&lng=77.30630&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      "https://swiggy-clone-api-vfc9.onrender.com/restaurants" 
+      "https://swiggy-clone-api-vfc9.onrender.com/restaurants"
     );
 
     const json = await data.json();
@@ -93,7 +93,7 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-4 ">
+      <div className="grid justify-center grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {/* restaurent card */}
         {filteredRestaurant.map((restaurant) => (
           <Link
