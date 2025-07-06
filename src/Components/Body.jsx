@@ -21,7 +21,7 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(
       // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.61450&lng=77.30630&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      "https://swiggy-clone-api-vfc9.onrender.com/restaurants" // This is the API endpoint to fetch restaurant data
+      "https://swiggy-clone-api-vfc9.onrender.com/restaurants" 
     );
 
     const json = await data.json();
