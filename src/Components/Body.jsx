@@ -52,7 +52,7 @@ const Body = () => {
   return Listofrestaurant.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="max-w-screen-xl px-2 mx-auto body sm:px-4 md:px-8">
+    <div className="max-w-screen-xl body">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between">
         <div className="flex items-center p-4 m-4">
           <input
