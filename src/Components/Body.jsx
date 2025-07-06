@@ -52,9 +52,9 @@ const Body = () => {
   return Listofrestaurant.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="max-w-screen-xl body">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-        <div className="flex items-center p-4 m-4">
+    <div className="w-full body">
+      <div className="flex flex-col w-full md:flex-row md:items-center md:justify-between">
+        <div className="flex items-center w-full">
           <input
             className="w-full max-w-xs p-2 m-2 border border-black rounded-lg"
             type="text"
@@ -65,7 +65,7 @@ const Body = () => {
             }}
           />
           <button
-            className="px-4 py-3 m-4 bg-green-100 rounded-lg cursor-pointer hover:bg-green-200"
+            className="px-4 py-3 m-2 bg-green-100 rounded-lg cursor-pointer hover:bg-green-200"
             onClick={() => {
               const filteredres = Listofrestaurant.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -77,9 +77,9 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="flex justify-end p-4 m-4">
+        <div className="flex justify-end w-full">
           <button
-            className="px-4 py-2 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200"
+            className="px-4 py-2 m-2 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200"
             onClick={() => {
               const filteredList = Listofrestaurant.filter(
                 (res) => res.info.avgRating > 4.3
@@ -91,7 +91,7 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="grid justify-center grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid w-full grid-cols-2 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {/* restaurent card */}
         {filteredRestaurant.map((restaurant) => (
           <Link
