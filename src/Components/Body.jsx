@@ -21,8 +21,7 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(
       // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.61450&lng=77.30630&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4552521&lng=77.5046101&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      "http://localhost:3000/restaurants"
+      "https://swiggy-clone-api-vfc9.onrender.com/restaurants" // This is the API endpoint to fetch restaurant data
     );
 
     const json = await data.json();
@@ -35,6 +34,7 @@ const Body = () => {
   };
 
   const onlineStatus = useOnlineStatus();
+
   if (onlineStatus === false) {
     return (
       <>
