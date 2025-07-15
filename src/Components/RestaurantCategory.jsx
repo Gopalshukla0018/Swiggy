@@ -20,7 +20,7 @@ const RestaurantCategory = ({ data }) => {
             🔽
           </span>
         </div>
-        <ItemList item={data.itemCards} />
+        <ItemList items={data.itemCards} />
       
         
       </div>
