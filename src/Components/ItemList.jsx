@@ -17,8 +17,7 @@ const ItemList = ({ items }) => {
           <div className="py-2">
             <span
               className="text-lg font-semibold "
-              style={{ color: "rgba(2, 6, 12, 0.75)" }}
-            >
+              style={{ color: "rgba(2, 6, 12, 0.75)" }}>
               {item.card.info.name}
             </span>
             <span>
