@@ -2,16 +2,16 @@ import CDN_URL from "../utils/constants";
 const ItemList = ({ items }) => {
   console.log(items);
   return (
-    <div >
+    <div>
       {items.map((item) => (
         <div
           key={item.card.info.id}
           className="p-2 m-2 border-gray-200  border-b-2 text-left flex justify-between"
         >
-          <div>
+          <div className="w-9/12">
             <div className="py-2">
               <span> {item.card.info.name} </span>
-              <span   
+              <span
                 className="text-lg font-semibold "
                 style={{ color: "rgba(2, 6, 12, 0.75)" }}
               >
@@ -25,11 +25,14 @@ const ItemList = ({ items }) => {
             </div>
             <p className="text-xs">{item.card.info.description}</p>
           </div>
-          <div>
+          <div className="w-3/12">
             <img
               src={CDN_URL + item.card.info.imageId}
               className="w-30 rounded-xl block ml-auto "
             />
+            <button className="bg-white shadow-lg cursor-pointer text-green-400 rounded-lg px-4 py-2">
+              Add
+            </button>
           </div>
         </div>
       ))}
