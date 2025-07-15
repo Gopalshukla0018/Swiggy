@@ -2,7 +2,7 @@ import CDN_URL from "../utils/constants";
 const ItemList = ({ items }) => {
   console.log(items);
   return (
-    <div>
+    <div className="flex flex-col ">
       {items.map((item) => (
         <div
           key={item.card.info.id}
@@ -15,13 +15,15 @@ const ItemList = ({ items }) => {
             />
           </div>
           <div className="py-2">
+            <span> {item.card.info.name} </span>
             <span
               className="text-lg font-semibold "
-              style={{ color: "rgba(2, 6, 12, 0.75)" }}>
+              style={{ color: "rgba(2, 6, 12, 0.75)" }}
+            >
               {item.card.info.name}
             </span>
             <span>
-              - &#8377;{" "}
+              - &#8377;
               {item.card.info.price / 100 || item.card.info.defaultPrice / 100}
             </span>
           </div>
