@@ -8,12 +8,7 @@ const ItemList = ({ items }) => {
           key={item.card.info.id}
           className="p-2 m-2 border-gray-200  border-b-2 text-left"
         >
-          <div>
-            <img
-              src={CDN_URL + item.card.info.imageId}
-              className="w-30 rounded-xl block ml-auto "
-            />
-          </div>
+         
           <div className="py-2">
             <span> {item.card.info.name} </span>
             <span
@@ -26,6 +21,12 @@ const ItemList = ({ items }) => {
               - &#8377;
               {item.card.info.price / 100 || item.card.info.defaultPrice / 100}
             </span>
+             <div>
+            <img
+              src={CDN_URL + item.card.info.imageId}
+              className="w-30 rounded-xl block ml-auto "
+            />
+          </div>
           </div>
           <p className="text-xs">{item.card.info.description}</p>
         </div>
