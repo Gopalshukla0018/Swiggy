@@ -6,7 +6,8 @@ const RestaurantCategory = ({ data }) => {
  
 
   const handleOnclick = () => {
-    console.log(data);
+    console.log("clicked");
+    
   };
 
   return (
@@ -20,8 +21,8 @@ const RestaurantCategory = ({ data }) => {
             🔽
           </span>
         </div>
-        <ItemList items={data.itemCards} />
-      
+       
+       <ItemList items={data.itemCards} />
         
       </div>
 
