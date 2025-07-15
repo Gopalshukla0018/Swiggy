@@ -1,4 +1,5 @@
-const ItemList = () => {
-  return <h1>item list</h1>;
+const ItemList = ({ item }) => {
+  console.log(item);
+  return <div> Category Item </div>;
 };
 export default ItemList;

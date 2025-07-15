@@ -3,10 +3,10 @@ import ItemList from "./ItemList";
 
 ItemList;
 const RestaurantCategory = ({ data }) => {
-  console.log(data);
+ 
 
   const handleOnclick = () => {
-    console.log("h");
+    console.log(data);
   };
 
   return (
@@ -20,7 +20,9 @@ const RestaurantCategory = ({ data }) => {
             🔽
           </span>
         </div>
-        <ItemList />
+        <ItemList item={data.itemCards} />
+      
+        
       </div>
 
       {/* accordion list */}
