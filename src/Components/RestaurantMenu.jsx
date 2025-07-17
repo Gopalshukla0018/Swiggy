@@ -11,6 +11,7 @@ const RestaurantMenu = () => {
   const [showIndex, setShowIndex] = useState(0);
 
   if (resInfo === null) {
+
     return <Shimmer />;
   }
 
@@ -45,7 +46,8 @@ const RestaurantMenu = () => {
           <RestaurantCategory
             key={category?.card.card.id}
             data={category?.card.card}
-            showItems={index === 0 ? true : false}
+            showItems={index === showIndex ? true : false}
+            setShowIndex={()=> setShowIndex(index)}
           />
         );
       })}
