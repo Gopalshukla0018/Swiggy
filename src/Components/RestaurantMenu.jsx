@@ -8,7 +8,8 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
 
   const resInfo = useRestaurantMenu(resId);
-  const [showIndex, setShowIndex] = useState(0);
+  const [showIndex, setShowIndex] = useState(null);
+  
 
   if (resInfo === null) {
 
@@ -33,6 +34,7 @@ const RestaurantMenu = () => {
       }
     );
 
+
   return (
     <div className="text-center ">
       <h1 className="my-6 text-2xl font-bold">{name}</h1>
@@ -47,7 +49,9 @@ const RestaurantMenu = () => {
             key={category?.card.card.id}
             data={category?.card.card}
             showItems={index === showIndex ? true : false}
-            setShowIndex={()=> setShowIndex(index)}
+            setShowIndex={() => {
+              setShowIndex(index==showIndex?null : index)
+             }}
           />
         );
       })}
