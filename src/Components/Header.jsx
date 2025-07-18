@@ -1,12 +1,15 @@
 import logo from "../assets/logo.png";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+
 
 const Header = () => {
   const [loginBtn, setloginBtn] = useState("Login");
   const onlineStatus = useOnlineStatus();
   const [menuOpen, setMenuOpen] = useState(false);
+  
+
 
   return (
     <header className="sticky top-0 z-50 flex items-center justify-between px-4 py-2 bg-white shadow-lg">
@@ -71,6 +74,7 @@ const Header = () => {
               {loginBtn}
             </button>
           </li>
+          
         </ul>
       </nav>
     </header>

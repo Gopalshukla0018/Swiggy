@@ -1,7 +1,10 @@
 const contact=()=>{
     return(
+        
         <div>
-            contact us on gopalshukla0018@gmail.com
+           <h1>  contact us on gopalshukla0018@gmail.com</h1>
+           
+            
         </div>
     )
 
