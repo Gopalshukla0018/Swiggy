@@ -1,12 +1,12 @@
-// const contact=()=>{
-//     return(
+const contact=()=>{
+    return(
         
-//         <div>
-//            <h1>  contact us on gopalshukla0018@gmail.com</h1>
+        <div>
+           <h1>  contact us on gopalshukla0018@gmail.com</h1>
            
             
-//         </div>
-//     )
+        </div>
+    )
 
-// }
-// export default contact;
+}
+export default contact;
