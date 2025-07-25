@@ -9,6 +9,7 @@ const About = () => {
     <div>
       <h1> About Us </h1>
       <p> We are a company that values food delivery </p>;
+      <p> I am frontend developer </p>
         
     
     </div>
