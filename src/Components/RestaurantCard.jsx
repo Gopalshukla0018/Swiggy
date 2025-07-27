@@ -1,11 +1,14 @@
+
 import CDN_URL from "../utils/constants";
 
 
-const RestaurentCard = (props) => {
-  const { resData } = props;
-  
 
+
+const RestaurentCard = (props) => {
  
+  const { resData } = props;
+
+
   if (!resData || !resData.info) return null;
   const {
     cloudinaryImageId,
@@ -33,8 +36,9 @@ const RestaurentCard = (props) => {
       </h4>
       <h4 className="font-semibold text-yellow-600">{avgRating} stars</h4>
       <h4 className="text-gray-800">{costForTwo}</h4>
-      <h4 className="text-gray-500">{deliveryTime}</h4>
-     
+      
+      <h4 className="text-gray-600">Delivery in {deliveryTime} mins</h4>
+ 
     </div>
   );
 };
