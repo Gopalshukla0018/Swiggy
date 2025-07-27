@@ -2,15 +2,16 @@ import logo from "../assets/logo.png";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [loginBtn, setloginBtn] = useState("Login");
   const onlineStatus = useOnlineStatus();
   const [menuOpen, setMenuOpen] = useState(false);
+  // subscribing to the store using the selector
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
   
-
-
   return (
     <header className="sticky top-0 z-50 flex items-center justify-between px-4 py-2 bg-white shadow-lg">
       <div className="flex items-center logo-container">
@@ -59,8 +60,8 @@ const Header = () => {
           <li className="px-4 py-2 md:py-0">
             <Link to="/contact"> Contact Us </Link>
           </li>
-          <li className="px-4 py-2 md:py-0">
-            <Link to="/cart"> Cart </Link>
+          <li className="px-4 py-2 text-xl font-bold md:py-0">
+            <Link to="/cart"> Cart ({cartItems.length}items) </Link>
           </li>
           <li className="px-4 py-2 md:py-0">
             <button
@@ -74,7 +75,6 @@ const Header = () => {
               {loginBtn}
             </button>
           </li>
-          
         </ul>
       </nav>
     </header>
