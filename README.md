@@ -1,6 +1,6 @@
 # Swiggy Clone 🍔
 
-**Live Demo**: [View Live](https://swiggy-clone-foodapp.vercel.app/)
+**Live Demo**: [View Live](https://swiggy-opal-ten.vercel.app/)
 **GitHub Repo**: [Gopalshukla0018/Swiggy](https://github.com/Gopalshukla0018/Swiggy)
 
 ---
