@@ -4,9 +4,9 @@ import { addItem } from "../utils/cartSlice";
 const ItemList = ({ items }) => {
   // console.log(items);
   const dispatch = useDispatch();
-  const handleAddItem = () => {
+  const handleAddItem = (item) => {
     // Dispatch an action
-    dispatch(addItem("pizza"));
+    dispatch(addItem(item));
   };
   return (
     <div>
@@ -37,7 +37,7 @@ const ItemList = ({ items }) => {
               <button
                 className="px-4 py-2 bg-white rounded-lg shadow-lg cursor-pointer text-black-400 mx-17 my-22 "
                 // onClick={() => alert("Feature coming soon")}
-                onClick={handleAddItem}
+                onClick={()=> handleAddItem(item)}
               >
                 Add
               </button>
