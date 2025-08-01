@@ -35,7 +35,7 @@ const ItemList = ({ items }) => {
           <div className="w-3/12">
             <div className="absolute ">
               <button
-                className="px-4 py-2 bg-white rounded-lg shadow-lg cursor-pointer active:scale-95 text-black-400 mx-17 my-22 "
+                className="px-4 py-2 bg-white rounded-lg shadow-lg cursor-pointer active:scale-70 text-black-400 mx-17 my-22 "
                 // onClick={() => alert("Feature coming soon")}
                 onClick={()=> handleAddItem(item)}
               >
