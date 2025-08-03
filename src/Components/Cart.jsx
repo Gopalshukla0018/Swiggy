@@ -9,6 +9,7 @@ const cart = () => {
   };
   return (
     <>
+    <div>
       <div className="relative w-6/12 p-4 m-auto text-center ">
         {<ItemList items={cartItems} />}
       </div>
@@ -23,6 +24,7 @@ const cart = () => {
           <h1 >🛒 Cart is on a diet! Add some delicious items 😎</h1>
         )}
       </button>
+      </div>
     </>
   );
 };
