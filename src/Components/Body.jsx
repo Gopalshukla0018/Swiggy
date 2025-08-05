@@ -61,7 +61,21 @@ const Body = () => {
             placeholder="Search Restaurants..."
             value={searchText}
             onChange={(e) => {
-              setsearchText(e.target.value);
+              const inputVal=e.target.value;
+              setsearchText(inputVal);
+    if (e.target.value === "") {
+       setfilteredRestaurant(Listofrestaurant);
+              }
+             else{
+                  const filteredres = Listofrestaurant.filter((res) =>
+                res.info.name.toLowerCase().includes(inputVal.toLowerCase())
+              );
+
+              
+              setfilteredRestaurant(filteredres);
+             }
+               
+
             }}
           />
           <button
