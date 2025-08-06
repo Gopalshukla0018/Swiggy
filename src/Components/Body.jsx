@@ -49,15 +49,15 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="px-4  ">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-        <div classNAme="flex">
+      <div className="flex items-center justify-between gap-4 p-4">
+      
           <Search
             Listofrestaurant={Listofrestaurant}
             setfilteredRestaurant={setfilteredRestaurant}
           />
-        </div>
+       
 
-        <div className="flex  p-4 m-4  justify-between items-center">
+        
           <button
             className="px-4 py-2 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200 mt-2 sm:mt-0"
             onClick={() => {
@@ -69,7 +69,7 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
-        </div>
+      
       </div>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {/* restaurent card */}
