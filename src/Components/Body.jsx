@@ -13,7 +13,6 @@ const Body = () => {
   const [Listofrestaurant, setListofrestaurant] = useState([]);
 
   const [filteredRestaurant, setfilteredRestaurant] = useState([]);
-   
 
   useEffect(() => {
     fetchData();
@@ -28,10 +27,8 @@ const Body = () => {
     // json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
     setListofrestaurant(restaurant);
     setfilteredRestaurant(restaurant);
-   
   };
   const onlineStatus = useOnlineStatus();
-  
 
   if (onlineStatus === false) {
     return (
@@ -53,17 +50,14 @@ const Body = () => {
   ) : (
     <div className="px-4  ">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-      <div classNAme="flex">
-
- <Search
-          Listofrestaurant={Listofrestaurant}
-          setfilteredRestaurant={setfilteredRestaurant}
-        />
-      </div>
-       
+        <div classNAme="flex">
+          <Search
+            Listofrestaurant={Listofrestaurant}
+            setfilteredRestaurant={setfilteredRestaurant}
+          />
+        </div>
 
         <div className="flex  p-4 m-4  justify-between items-center">
-
           <button
             className="px-4 py-2 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200 mt-2 sm:mt-0"
             onClick={() => {
