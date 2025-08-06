@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { useSelector } from "react-redux";
-
+import { FaCartArrowDown } from "react-icons/fa";
 const Header = () => {
   const [loginBtn, setloginBtn] = useState("Login");
   const onlineStatus = useOnlineStatus();
@@ -61,7 +61,7 @@ const Header = () => {
             <Link to="/contact"> Contact Us </Link>
           </li>
           <li className="px-4 py-2 text-xl font-bold md:py-0">
-            <Link to="/cart"> Cart ({cartItems.length}items) </Link>
+            <Link to="/cart"> <FaCartArrowDown /> ({cartItems.length}items) </Link>
           </li>
           <li className="px-4 py-2 md:py-0">
             <button

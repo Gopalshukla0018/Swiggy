@@ -34,11 +34,11 @@ const search = ({ Listofrestaurant, setfilteredRestaurant }) => {
 
   return (
     <>
-      <div className="flex items-center gap-2">
-        <div className="relative ">
+      <div className="flex items-center gap-2 w-full">
+        <div className="relative w-full  md:w-64">
           <input
             type="text"
-            className="w-40 sm:w-64 p-2 border border-solid border-orange-600 rounded-lg"
+           className="w-full md:w-64 p-2 border border-solid border-orange-600 rounded-lg focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500"
             placeholder="Search for restaurants"
             value={searchText}
            
@@ -53,7 +53,7 @@ const search = ({ Listofrestaurant, setfilteredRestaurant }) => {
           )}
            <button
         
-          className="p-3   absolute top-0.4 m-0.4 right-0 bg-orange-400 rounded-lg hover:bg-orange-500"
+          className="absolute top-0 right-0 h-full px-4 flex items-center bg-orange-400 rounded-r-lg hover:bg-orange-500"
           onClick={(()=>{
             // If searchText is not empty, perform search function
                 searchText.trim() !== "" && performSearch();
