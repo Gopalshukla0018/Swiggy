@@ -25,6 +25,12 @@ const search = ({ Listofrestaurant, setfilteredRestaurant }) => {
         const transcript = event.results[0][0].transcript;
         setsearchText(transcript);
         setIsListening(false);
+        
+        const filteredList = Listofrestaurant.filter((res) => {
+          return res.info.name.toLowerCase().includes(transcript.toLowerCase());
+        });
+        setfilteredRestaurant(filteredList);
+     
       };
       recognition.onend = () => {
         setIsListening(false);
@@ -78,6 +84,7 @@ const search = ({ Listofrestaurant, setfilteredRestaurant }) => {
             value={searchText}
             onChange={(e) => {
               setsearchText(e.target.value);
+
             }}
             onKeyDown={handleKeyDown}
           />
