@@ -16,8 +16,8 @@ const RestaurentCard = (props) => {
     cuisines = [],
     avgRating,
     costForTwo,
-    deliveryTime,
-  } = resData.info;
+    sla: {deliveryTime},
+  } = resData.info ;
   return (
     <div className="flex flex-col items-stretch w-full p-4 transition-transform duration-200 bg-white rounded-lg shadow hover:scale-105">
       <img
