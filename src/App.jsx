@@ -9,13 +9,14 @@ import RestaurantMenu from "./Components/RestaurantMenu";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./Components/Cart";
-
+import Footer from "./Components/Footer";
 function App() {
   return (
     <Provider store={appStore}>
       <div className="App">
         <Header />
         <Outlet />
+        <Footer />
       </div>
     </Provider>
   );
