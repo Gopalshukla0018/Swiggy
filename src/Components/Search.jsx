@@ -11,7 +11,7 @@ const search = ({ Listofrestaurant, setfilteredRestaurant }) => {
   return (
     <>
       <div className="flex items-center gap-2">
-        <div className="relative w-full">
+        <div className="relative ">
             
            <input
           type="text"

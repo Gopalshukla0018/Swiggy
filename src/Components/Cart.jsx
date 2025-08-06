@@ -15,7 +15,7 @@ const cart = () => {
       </div>
       
       <button
-        className="absolute p-2 sticky text-white transition duration-150 ease-in-out transform bg-gray-600 border rounded-md cursor-pointer hover:bg-gray-900 right-10 bottom-3 active:scale-95 active:bg-gray-700"
+        className="absolute p-2  text-white transition duration-150 ease-in-out transform bg-gray-600 border rounded-md cursor-pointer hover:bg-gray-900 right-10 bottom-3 active:scale-95 active:bg-gray-700"
         onClick={handleClearCart}
       >
         {" "}
