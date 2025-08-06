@@ -5,7 +5,7 @@
 
 ---
 
-## 📌 Overview
+## 📌 Overview 
 
 A fully responsive **Swiggy-inspired food delivery web app** built using modern frontend tools and fake REST API (JSON Server). It supports real-time menu loading, cart functionality, filters, and mobile-first design.
 
