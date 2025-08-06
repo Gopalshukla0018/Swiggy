@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Search from "./Search";
 
+
 // import MockRestaurants from "../utils/MockRestaurants";
 // This is the body component which contains the search bar and restaurant cards
 
@@ -50,14 +51,20 @@ const Body = () => {
   ) : (
     <div className="px-4  ">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4">
-      
-          <Search
-            Listofrestaurant={Listofrestaurant}
-            setfilteredRestaurant={setfilteredRestaurant}
-          />
-       
+        <Search
+          Listofrestaurant={Listofrestaurant}
+          setfilteredRestaurant={setfilteredRestaurant}
+        />
+        <div className="flex  gap-7 ">
+          <button
+            className="px-4 py-2 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200 mt-2 sm:mt-0"
+            onClick={() => {
+              setfilteredRestaurant(Listofrestaurant);
+            }}
+          >
+            All Restaurants
+          </button>
 
-        
           <button
             className="px-4 py-2 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200 mt-2 sm:mt-0"
             onClick={() => {
@@ -69,7 +76,7 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
-      
+        </div>
       </div>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {/* restaurent card */}

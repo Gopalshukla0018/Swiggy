@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Suggestions from "./Suggestions";
-
+import { FaSearch } from "react-icons/fa";
 const search = ({ Listofrestaurant, setfilteredRestaurant }) => {
   const [searchText, setsearchText] = useState("");
   const suggestions = Listofrestaurant.filter((res) => {
@@ -26,7 +26,7 @@ const search = ({ Listofrestaurant, setfilteredRestaurant }) => {
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
+    if (  e.key === "Enter" && searchText.trim() !== "") {
       performSearch();
     }
     // if the Enter key is pressed call performSearch function
@@ -38,9 +38,10 @@ const search = ({ Listofrestaurant, setfilteredRestaurant }) => {
         <div className="relative ">
           <input
             type="text"
-            className="w-40 sm:w-64 p-2 border border-solid border-black rounded-lg"
+            className="w-40 sm:w-64 p-2 border border-solid border-orange-600 rounded-lg"
             placeholder="Search for restaurants"
             value={searchText}
+           
             onChange={(e) => {
               const text = e.target.value;
               setsearchText(e.target.value);
@@ -50,14 +51,20 @@ const search = ({ Listofrestaurant, setfilteredRestaurant }) => {
           {searchText.length > 0 && (
             <Suggestions suggestions={suggestions} onSelect={handleSelect} />
           )}
-        </div>
-
-        <button
-          className="px-4 py-2 bg-green-100 rounded-lg hover:bg-green-200"
-          onClick={performSearch}
+           <button
+        
+          className="p-3   absolute top-0.4 m-0.4 right-0 bg-orange-400 rounded-lg hover:bg-orange-500"
+          onClick={(()=>{
+            // If searchText is not empty, perform search function
+                searchText.trim() !== "" && performSearch();
+                
+          })}
         >
-          Search
+          <FaSearch/>
         </button>
+        </div>
+              
+       
       </div>
     </>
   );
