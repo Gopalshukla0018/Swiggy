@@ -1,38 +1,37 @@
 import RestaurentCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
+import { RES_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import Search from "./Search";
+
 // import MockRestaurants from "../utils/MockRestaurants";
 // This is the body component which contains the search bar and restaurant cards
 
 const Body = () => {
   const [Listofrestaurant, setListofrestaurant] = useState([]);
-  const [searchText, setsearchText] = useState("");
+
   const [filteredRestaurant, setfilteredRestaurant] = useState([]);
+   
 
   useEffect(() => {
     fetchData();
-    // setListofrestaurant(restaurants);
-    // setfilteredRestaurant(restaurants);
-    // console.log(mockRestaurants);
-    // console.log(Listofrestaurant);
   }, []);
   const fetchData = async () => {
     const data = await fetch(
       // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.61450&lng=77.30630&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      "https://swiggy-clone-api-vfc9.onrender.com/restaurants"
+      RES_URL // import from constants
     );
-
     const json = await data.json();
     const restaurant = json || [];
     // json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
     setListofrestaurant(restaurant);
     setfilteredRestaurant(restaurant);
-    console.log(restaurant);
+   
   };
-
   const onlineStatus = useOnlineStatus();
+  
 
   if (onlineStatus === false) {
     return (
@@ -52,48 +51,21 @@ const Body = () => {
   return Listofrestaurant.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="px-4 mx-auto ">
+    <div className="px-4  ">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-        <div className="flex items-center p-4 m-4">
-          <input
-            className="w-full max-w-xs p-2 m-2 border border-black rounded-lg"
-            type="text"
-            placeholder="Search Restaurants..."
-            value={searchText}
-            onChange={(e) => {
-              const inputVal=e.target.value;
-              setsearchText(inputVal);
-    if (e.target.value === "") {
-       setfilteredRestaurant(Listofrestaurant);
-              }
-             else{
-                  const filteredres = Listofrestaurant.filter((res) =>
-                res.info.name.toLowerCase().includes(inputVal.toLowerCase())
-              );
+      <div classNAme="flex">
 
-              
-              setfilteredRestaurant(filteredres);
-             }
-               
+ <Search
+          Listofrestaurant={Listofrestaurant}
+          setfilteredRestaurant={setfilteredRestaurant}
+        />
+      </div>
+       
 
-            }}
-          />
+        <div className="flex  p-4 m-4  justify-between items-center">
+
           <button
-            className="px-4 py-3 m-4 bg-green-100 rounded-lg cursor-pointer hover:bg-green-200"
-            onClick={() => {
-              const filteredres = Listofrestaurant.filter((res) =>
-                res.info.name.toLowerCase().includes(searchText.toLowerCase())
-              );
-
-              setfilteredRestaurant(filteredres);
-            }}
-          >
-            Search
-          </button>
-        </div>
-        <div className="flex justify-end p-4 m-4">
-          <button
-            className="px-4 py-2 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200"
+            className="px-4 py-2 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200 mt-2 sm:mt-0"
             onClick={() => {
               const filteredList = Listofrestaurant.filter(
                 (res) => res.info.avgRating > 4.3
