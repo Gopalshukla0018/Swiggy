@@ -22,6 +22,7 @@ const search = ({ Listofrestaurant, setfilteredRestaurant }) => {
       return res.info.name.toLowerCase().includes(searchText.toLowerCase());
     });
     setfilteredRestaurant(filteredList);
+    setsearchText("");
   };
 
   const handleKeyDown = (e) => {
