@@ -11,7 +11,17 @@ const search = ({ Listofrestaurant, setfilteredRestaurant }) => {
 
 
   const handleSelect = (resname) => {
-    setsearchText(resname);}
+    setsearchText(resname);
+    const filteredList = Listofrestaurant.filter((res) => {
+      return res.info.name.toLowerCase().includes(resname.toLowerCase());
+    });
+    setfilteredRestaurant(filteredList);
+    // Clear suggestions after selection
+    setsearchText("");
+    // Optionally, you can also clear the suggestions if needed
+   
+   
+  }
 
 
   return (
