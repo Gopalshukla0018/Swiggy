@@ -1,81 +1,63 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/5E94E084-932C-4475-83D1-3E1280CB3255.png"
+import logo from "../assets/5E94E084-932C-4475-83D1-3E1280CB3255.png";
 
- function Footer() {
+// डेटा को व्यवस्थित रखना अभी भी एक अच्छा तरीका है
+const footerSections = [
+  {
+    title: "Company",
+    links: ["About", "Careers", "Team", "Swiggy One", "Swiggy Instamart", "Swiggy Genie"],
+  },
+  {
+    title: "Contact us",
+    links: ["Help & Support", "Partner with us", "Ride with us"],
+  },
+  {
+    title: "Legal",
+    links: ["Terms & Conditions", "Cookie Policy", "Privacy Policy"],
+  },
+  {
+    title: "We deliver to:",
+    links: ["Bangalore", "Gurgaon", "Hyderabad", "Delhi", "Mumbai", "Pune"],
+  },
+];
+
+function Footer() {
+ 
+
   return (
-   <div
-    className="flex flex-col w-full gap-4 p-12 pb-24 mt-6 overflow-hidden text-gray-700 bg-gray-100 md:flex-row text-medium justify-evenly font-montserrat"
-   >
-    {/* item1 */}
-    <div className="flex flex-col items-start gap-2 xs:gap-1 whitespace-nowrap sm:overflow-hidden">
-     <h3 className="flex items-center gap-2 text-2xl font-bold text-gray-900 xs:text-lg xs:gap-1">
-      <Link to="/">
-       <img
-        src={logo}
-        className="w-8 xs:w-6"
-        style={{ fill: "green" }}
-        alt=""
-       />{" "}
-      </Link>
-      <span className="text-orange-500 hover:text-orange-400">Swiggy</span>
-     </h3>
-     <span className="text-sm text-gray-500"> &copy; © 2025 Gopal Shukla</span>
-     <span className="text-sm text-gray-500"> Inspired by Swiggy | UI Clone Project</span>
-    </div>
+    <footer className="px-8 py-12 text-gray-900 bg-gray-50 md:px-16 font-montserrat">
+      <div className="container mx-auto">
+        
+       
+        <div className="mb-10">
+          <Link to="/" className="flex items-center gap-2 text-2xl font-bold">
+            <img src={logo} className="w-8" alt="Swiggy Logo" />
+            <span>Swiggy</span>
+          </Link>
+          <p className="mt-2 text-sm text-gray-400">&copy; 2025 Gopal Shukla</p>
+        </div>
 
-    {/* item2 */}
-    <div className="flex flex-col items-start gap-2 xs:gap-1 whitespace-nowrap sm:overflow-hidden">
-     <h3 className="text-lg font-bold text-gray-900 xs:text-sm">Company</h3>
-     <span className="text-sm text-gray-500 hover:text-orange-400">About</span>
-     <span className="text-sm text-gray-500 hover:text-orange-400">Careers</span>
-     <span className="text-sm text-gray-500 hover:text-orange-400">Team</span>
-     <span className="text-sm text-gray-500 hover:text-orange-400">Swiggy One</span>
-     <span className="text-sm text-gray-500 hover:text-orange-400">Swiggy Instamart</span>
-     <span className="text-sm text-gray-500 hover:text-orange-400">Swiggy Genie</span>
-    </div>
+       
+        <div className="grid grid-cols-2 gap-x-4 gap-y-8 lg:grid-cols-4 lg:gap-8">
+          {footerSections.map((section, index) => (
+            <div key={index}>
+              <h3 className="mb-4 text-lg font-bold">{section.title}</h3>
+              <ul className="space-y-3">
+                {section.links.map((link, i) => (
+                  <li key={i}>
+                    <a href="#" className="text-gray-400 transition-colors duration-200 hover:text-orange-500">
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
 
-    {/* item3 */}
-    <div className="flex flex-col items-start gap-8 xs:gap-1 whitespace-nowrap sm:overflow-hidden">
-     <div className="flex flex-col gap-2 mb-10 xs:gap-1 whitespace-nowrap">
-      <h3 className="text-lg font-bold text-gray-900 xs:text-sm">
-       Contact us
-      </h3>
-      <span className="text-sm text-gray-500 hover:text-orange-400">Help & Support</span>
-      <span className="text-sm text-gray-500 hover:text-orange-400">Partner with us</span>
-      <span className="text-sm text-gray-500 hover:text-orange-400">Ride with us</span>
-     </div>
-     <div className="flex flex-col gap-2 xs:gap-1 whitespace-nowrap sm:overflow-hidden">
-      <h3 className="text-lg font-bold text-gray-900 xs:text-sm"> Legal</h3>
-      <span className="text-sm text-gray-500 hover:text-orange-400">Terms & Conditions</span>
-      <span className="text-sm text-gray-500 hover:text-orange-400">Cookie Policy</span>
-      <span className="text-sm text-gray-500 hover:text-orange-400">Privacy Policy</span>
-     </div>
-    </div>
-
-    {/* item4 */}
-    <div className="flex flex-col items-start gap-2 xs:gap-1 whitespace-nowrap sm:overflow-hidden">
-     <h3 className="text-lg font-bold text-gray-900 xs:text-sm">
-      We deliver to:
-     </h3>
-     <span className="text-sm text-gray-500 hover:text-orange-400">Bangalore</span>
-     <span className="text-sm text-gray-500 hover:text-orange-400">Gurgaon</span>
-     <span className="text-sm text-gray-500 hover:text-orange-400">Hyderabad</span>
-     <span className="text-sm text-gray-500 hover:text-orange-400">Delhi</span>
-     <span className="text-sm text-gray-500 hover:text-orange-400">Mumbai</span>
-     <span className="text-sm text-gray-500 hover:text-orange-400">Pune</span>
-    </div>
-    {/* item5 */}
-    <div className="flex flex-col items-start gap-2 xs:gap-1 whitespace-nowrap sm:overflow-hidden">
-     <h3 className="text-lg font-bold text-gray-900 xs:text-sm">
-      Life at Swiggy
-     </h3>
-     <span className="text-sm text-gray-500 hover:text-orange-400">Explore with Swiggy</span>
-     <span className="text-sm text-gray-500 hover:text-orange-400">Swiggy News</span>
-     <span className="text-sm text-gray-500 hover:text-orange-400">Snackables</span>
-    </div>
-
-   </div>
+      </div>
+    </footer>
   );
- }
+}
 
- export default Footer;
+export default Footer;
