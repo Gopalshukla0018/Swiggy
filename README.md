@@ -31,6 +31,7 @@ A fully responsive **Swiggy-inspired food delivery web app** built using modern 
 <img width="203" height="452" alt="Screenshot 2025-08-07 034545" src="https://github.com/user-attachments/assets/bcec7ad6-9de5-4f8b-9f45-46c140ab1078" />
 
 
+<img width="214" height="462" alt="Screenshot 2025-08-07 035104" src="https://github.com/user-attachments/assets/e45494df-c4b6-4a5e-96ca-c72a08d05064" />
 
 
 
