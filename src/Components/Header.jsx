@@ -1,9 +1,11 @@
 import logo from "../assets/logo.png";
+import "../App.css";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { useSelector } from "react-redux";
 import { FaCartArrowDown } from "react-icons/fa";
+
 const Header = () => {
   const [loginBtn, setloginBtn] = useState("Login");
   const onlineStatus = useOnlineStatus();
@@ -13,9 +15,11 @@ const Header = () => {
   console.log(cartItems);
   
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-between px-4 py-2 bg-white shadow-lg">
-      <div className="flex items-center logo-container">
-        <img className="w-auto h-14" src={logo} alt="logo" />
+    <header className="sticky top-0 z-50 flex items-center justify-between px-4 py-2 bg-white shadow-lg h-25">
+      <div className="flex items-center gap-2 md:gap-4 flogo-container">
+        <img className="object-contain w-10 h-10 md:h-14 md:w-14" src={logo} alt="logo" />
+        <h2 className="font-sans text-lg font-extrabold text-orange-500 cursor-pointer md:text-xl whitespace-nowrap">Swiggy</h2>
+
       </div>
       {/* Hamburger Icon for mobile */}
       <button
