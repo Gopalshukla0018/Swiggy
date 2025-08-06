@@ -8,6 +8,12 @@ const search = ({ Listofrestaurant, setfilteredRestaurant }) => {
     return res.info.name.toLowerCase().includes(searchText.toLowerCase());
   });
 
+
+
+  const handleSelect = (resname) => {
+    setsearchText(resname);}
+
+
   return (
     <>
       <div className="flex items-center gap-2">
@@ -26,7 +32,7 @@ const search = ({ Listofrestaurant, setfilteredRestaurant }) => {
         {searchText.length > 0 && (
           <Suggestions
             suggestions={suggestions}
-            // onSelect={handleSelect}
+            onSelect={handleSelect}
           />
         )}
 
