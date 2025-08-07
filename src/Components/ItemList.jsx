@@ -15,11 +15,11 @@ const ItemList = ({ items }) => {
           key={item.card.info.id}
           className="flex justify-between p-2 m-2 text-left border-b-2 border-gray-200"
         >
-          <div className="w-9/12">
-            <div className="py-2">
+          <div className="w-9/12 ">
+            <div className="py-2 truncate">
               <span> {item.card.info.name} </span>
               <span
-                className="text-lg font-semibold "
+                className="text-lg font-semibold truncate "
                 style={{ color: "rgba(2, 6, 12, 0.75)" }}
               >
                 {item.card.info.name}
@@ -30,7 +30,7 @@ const ItemList = ({ items }) => {
                   item.card.info.defaultPrice / 100}
               </span>
             </div>
-            <p className="text-xs">{item.card.info.description}</p>
+            <p className="text-xs ">{item.card.info.description}</p>
           </div>
           <div className="w-3/12">
             <div className="absolute ">
