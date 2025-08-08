@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 import Suggestions from "./Suggestions";
 import { FaSearch } from "react-icons/fa";
+import { HiOutlineMicrophone } from "react-icons/hi";
+import { HiMicrophone } from "react-icons/hi2";
 const search = ({ Listofrestaurant, setfilteredRestaurant }) => {
   const [searchText, setsearchText] = useState("");
   const [isListening, setIsListening] = useState(false);
@@ -97,7 +99,7 @@ const search = ({ Listofrestaurant, setfilteredRestaurant }) => {
             aria-label="Voice Search"
             onClick={handleVoiceSearch}
           >
-            {isListening ? <span role="img" aria-label="Listening">🎙️</span> : <span role="img" aria-label="Voice">🎤</span>}
+            {isListening ? <span role="img" aria-label="Listening"><HiOutlineMicrophone /></span> : <span role="img" aria-label="Voice"><HiMicrophone /></span>}
           </button>
           <button
             className="absolute top-0 right-0 flex items-center h-full px-4 bg-orange-400 rounded-r-lg hover:bg-orange-500"
