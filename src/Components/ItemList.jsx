@@ -1,13 +1,14 @@
 import CDN_URL from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
+
 const ItemList = ({ items }) => {
-  // console.log(items);
   const dispatch = useDispatch();
+
   const handleAddItem = (item) => {
-    // Dispatch an action
     dispatch(addItem(item));
   };
+
   return (
     <div>
       {items.map((item) => (
@@ -15,41 +16,40 @@ const ItemList = ({ items }) => {
           key={item.card.info.id}
           className="flex justify-between p-2 m-2 text-left border-b-2 border-gray-200"
         >
-          <div className="w-9/12 ">
-            <div className="py-2 truncate">
-              <span> {item.card.info.name} </span>
-              <span
-                className="text-lg font-semibold truncate "
-                style={{ color: "rgba(2, 6, 12, 0.75)" }}
-              >
+          {/* LEFT PART */}
+          <div className="w-8/12 pr-2">
+            <div className="py-2">
+              <span className="block font-semibold">
                 {item.card.info.name}
               </span>
-              <span>
-                - &#8377;
-                {item.card.info.price / 100 ||
-                  item.card.info.defaultPrice / 100}
+              <span className="text-sm text-gray-700">
+                ₹{item.card.info.price / 100 || item.card.info.defaultPrice / 100}
               </span>
             </div>
-            <p className="text-xs ">{item.card.info.description}</p>
+            <p className="overflow-y-auto text-xs text-gray-600 max-h-24">
+              {item.card.info.description}
+            </p>
           </div>
-          <div className="w-3/12">
-            <div className="absolute ">
-              <button
-                className="px-4 py-2 transition duration-150 ease-in-out transform bg-white rounded-lg shadow-lg cursor-pointer active:scale-70 text-black-400 mx-17 my-22 "
-                // onClick={() => alert("Feature coming soon")}
-                onClick={()=> handleAddItem(item)}
-              >
-                Add
-              </button>
-            </div>
+
+          {/* RIGHT PART */}
+          <div className="relative flex flex-col items-center w-4/12">
             <img
               src={CDN_URL + item.card.info.imageId}
-              className="block ml-auto w-30 h-28 rounded-xl "
+              className="object-cover w-24 h-24 mb-2 rounded-lg"
+              alt={item.card.info.name}
             />
+            <button
+              className="px-3 py-1 text-sm text-black bg-white border border-gray-400 rounded-lg shadow"
+              onClick={() => handleAddItem(item)}
+            >
+              Add
+            </button>
           </div>
         </div>
       ))}
     </div>
   );
 };
+
 export default ItemList;
+

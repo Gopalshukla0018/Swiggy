@@ -1,35 +1,47 @@
+import { useState } from "react";
 import ItemList from "./ItemList";
 
-const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
-  const handleClick = () => {
-    // This function toggles the accordion open or closed
+ItemList;
+const RestaurantCategory = ({ data , showItems ,setShowIndex}) => {
+
+  const handleOnclick = () => {
     setShowIndex();
+    console.log("clicked");
+
   };
 
   return (
-    <div>
-      {/* Accordion Container */}
-      {/* - `w-full`: Takes full width on mobile screens.
-        - `md:w-8/12 lg:w-7/12`: Adjusts width for medium and large screens.
-        - `mx-auto`: Keeps it centered.
-        - `bg-white shadow-lg`: Adds a card-like appearance.
-      */}
-      <div className="w-full p-4 mx-auto my-4 bg-white rounded-lg shadow-lg md:w-8/12 lg:w-7/12">
-        {/* Accordion Header */}
-        <div className="flex items-center justify-between cursor-pointer" onClick={handleClick}>
-          <span className="text-lg font-bold text-gray-800">
-            {data.title} ({data.itemCards.length})
-          </span>
-          {/* Arrow Icon with smooth rotation */}
-          <span className={`transform transition-transform duration-300 ${showItems ? 'rotate-180' : ''}`}>
-            ▼
-          </span>
-        </div>
+    // <div>
+    //   <div className="items-center w-7/12 px-4 py-3 mx-auto my-4 transition duration-200 rounded-lg ">
+    //     <div className="flex justify-between cursor-pointer" onClick={handleOnclick}>
+    //       <span className="text-lg font-semibold text-gray-800">
+    //         {data.title} ({data.itemCards.length})
+    //       </span>
+    //       <span className="text-xl" >
+    //         🔽
+    //       </span>
+    //     </div>
 
-        {/* Accordion Body: Shows the item list when `showItems` is true */}
-        {showItems && <ItemList items={data.itemCards} />}
-      </div>
+    //    {  showItems && <ItemList items={data.itemCards} />}
+    //   </div>
+
+    //   {/* accordion list */}
+    // </div>
+    <div className="items-center w-full max-w-2xl px-4 py-3 mx-auto my-4 transition duration-200 rounded-lg">
+  <div className="flex justify-between cursor-pointer" onClick={handleOnclick}>
+    <span className="text-lg font-semibold text-gray-800">
+      {data.title} ({data.itemCards.length})
+    </span>
+    <span className="text-xl">🔽</span>
+  </div>
+
+  {showItems && (
+    <div className="mt-2 overflow-y-auto max-h-64">
+      <ItemList items={data.itemCards} />
     </div>
+  )}
+</div>
+
   );
 };
 
