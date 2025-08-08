@@ -16,7 +16,7 @@ const ItemList = ({ items }) => {
           key={item.card.info.id}
           className="flex justify-between p-2 m-2 text-left border-b-2 border-gray-200"
         >
-          {/* LEFT PART */}
+        
           <div className="w-8/12 pr-2">
             <div className="py-2">
               <span className="block font-semibold">
@@ -39,7 +39,7 @@ const ItemList = ({ items }) => {
               alt={item.card.info.name}
             />
             <button
-              className="px-3 py-1 text-sm text-black bg-white border border-gray-400 rounded-lg shadow"
+              className="px-3 py-1 text-sm text-black transition-all duration-150 ease-in-out bg-white border border-gray-400 rounded-lg shadow hover:shadow-md active:scale-90"
               onClick={() => handleAddItem(item)}
             >
               Add
