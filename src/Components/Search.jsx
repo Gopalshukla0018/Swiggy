@@ -94,7 +94,7 @@ const search = ({ Listofrestaurant, setfilteredRestaurant }) => {
             <Suggestions suggestions={suggestions} onSelect={handleSelect} />
           )}
           <button
-            className="absolute top-0 flex items-center h-full px-4 bg-blue-400 rounded-l-lg right-10 hover:bg-blue-500"
+            className="absolute top-0 flex items-center h-full px-4 bg-orange-400 rounded-r-lg hover:bg-orange-500 right-10"
             type="button"
             aria-label="Voice Search"
             onClick={handleVoiceSearch}
