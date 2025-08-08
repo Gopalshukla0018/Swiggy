@@ -52,24 +52,24 @@ const Header = () => {
         }
       >
         <ul className="flex flex-col gap-2 md:flex-row md:p-4 md:m-4 md:gap-0">
-          <li className="px-4 py-2 md:py-0">
+          <li className="px-4 py-2 md:py-0 hover:text-orange-500 ">
             Online Status: {onlineStatus ? "✅" : "❌"}
           </li>
-          <li className="px-4 py-2 md:py-0">
+          <li className="px-4 py-2 md:py-0 hover:text-orange-500">
             <Link to="/"> Home</Link>
           </li>
-          <li className="px-4 py-2 md:py-0">
+          <li className="px-4 py-2 md:py-0 hover:text-orange-500">
             <Link to="/about"> About </Link>
           </li>
-          <li className="px-4 py-2 md:py-0">
+          <li className="px-4 py-2 md:py-0 hover:text-orange-500">
             <Link to="/contact"> Contact Us </Link>
           </li>
-          <li className="px-4 py-2 text-xl font-bold md:py-0">
+          <li className="px-4 py-2 text-xl font-bold md:py-0 hover:text-orange-500">
             <Link to="/cart"> <FaCartArrowDown /> ({cartItems.length}items) </Link>
           </li>
           <li className="px-4 py-2 md:py-0">
             <button
-              className="px-4 py-2 transition bg-orange-100 rounded cursor-pointer login-logout-button hover:bg-orange-200 active:scale-95"
+              className="px-4 py-2 transition bg-orange-100 rounded cursor-pointer hover:text-orange-500 login-logout-button hover:bg-orange-200 active:scale-95"
               onClick={() => {
                 loginBtn === "Login"
                   ? setloginBtn("Logout")
