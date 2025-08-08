@@ -19,6 +19,7 @@ const RestaurentCard = (props) => {
     sla: {deliveryTime},
   } = resData.info ;
   return (
+   
     <div className="flex flex-col items-stretch w-full p-4 transition-transform duration-200 bg-white rounded-lg shadow hover:scale-105">
       <img
         className="object-cover w-full h-40 rounded res-logo"  
