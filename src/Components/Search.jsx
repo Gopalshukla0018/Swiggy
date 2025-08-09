@@ -101,6 +101,8 @@ const search = ({ Listofrestaurant, setfilteredRestaurant }) => {
           >
             {isListening ? <span role="img" aria-label="Listening"><HiOutlineMicrophone /></span> : <span role="img" aria-label="Voice"><HiMicrophone /></span>}
           </button>
+
+
           <button
             className="absolute top-0 right-0 flex items-center h-full px-4 bg-orange-400 rounded-r-lg hover:bg-orange-500"
             onClick={() => {
