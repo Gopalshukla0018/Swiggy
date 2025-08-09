@@ -1,55 +1,100 @@
-import CDN_URL from "../utils/constants";
-import { useDispatch } from "react-redux";
-import { addItem } from "../utils/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, incrementQuantity, decrementQuantity } from "../utils/cartSlice";
+import CDN_URL  from "../utils/constants";
 
 const ItemList = ({ items }) => {
   const dispatch = useDispatch();
+
+  // STEP 1: Redux store se cart ke saare items nikal lo.
+  // useSelector store ke saath ek connection banata hai. Jab bhi cartItems badlega, component apne aap update ho jayega.
+  const cartItems = useSelector((store) => store.cart.items);
+
+  // Naye handlers + aur - buttons ke liye
+  const handleIncrement = (itemId) => {
+    dispatch(incrementQuantity({ id: itemId }));
+  };
+
+  const handleDecrement = (itemId) => {
+    dispatch(decrementQuantity({ id: itemId }));
+  };
 
   const handleAddItem = (item) => {
     dispatch(addItem(item));
   };
 
-  return (
-    <div>
-      {items.map((item) => (
-        <div
-          key={item.card.info.id}
-          className="flex justify-between p-2 m-2 text-left border-b-2 border-gray-200"
-        >
-        
-          <div className="w-8/12 pr-2">
-            <div className="py-2">
-              <span className="block font-semibold">
-                {item.card.info.name}
-              </span>
-              <span className="text-sm text-gray-700">
-                ₹{item.card.info.price / 100 || item.card.info.defaultPrice / 100}
-              </span>
-            </div>
-            <p className="overflow-y-auto text-xs text-gray-600 max-h-24">
-              {item.card.info.description}
-            </p>
-          </div>
 
-          {/* RIGHT PART */}
-          <div className="relative flex flex-col items-center w-4/12">
-            <img
-              src={CDN_URL + item.card.info.imageId}
-              className="object-cover w-24 h-24 mb-2 rounded-lg"
-              alt={item.card.info.name}
-            />
-            <button
-              className="px-3 py-1 text-sm text-black transition-all duration-150 ease-in-out bg-white border border-gray-400 rounded-lg shadow hover:shadow-md active:scale-90"
-              onClick={() => handleAddItem(item)}
-            >
-              Add
-            </button>
+  return (
+    <div className="pt-2">
+      {items.map((item) => {
+        // STEP 2: Har item ke liye check karo ki woh cart mein hai ya nahi.
+        const cartItem = cartItems.find(
+          (ci) => ci.card.info.id === item.card.info.id
+        );
+        const quantity = cartItem ? cartItem.quantity : 0;
+
+        return (
+          <div
+            key={item.card.info.id}
+            className="flex items-center justify-between p-2 my-2 text-left border-b-2 border-gray-200 last:border-none"
+          >
+            {/* LEFT PART: Item Details */}
+            <div className="w-9/12 pr-4">
+              <div className="py-2">
+                <span className="font-semibold text-gray-800">
+                  {item.card.info.name}
+                </span>
+                <span className="block mt-1 text-sm text-gray-700">
+                  ₹{item.card.info.price / 100 || item.card.info.defaultPrice / 100}
+                </span>
+              </div>
+              <p className="text-xs text-gray-500">
+                {item.card.info.description}
+              </p>
+            </div>
+
+            {/* RIGHT PART: Image and Button */}
+            <div className="relative flex flex-col items-center justify-center w-3/12">
+              {item.card.info.imageId && (
+                 <img
+                    src={CDN_URL + item.card.info.imageId}
+                    className="object-cover h-24 rounded-md w-28"
+                    alt={item.card.info.name}
+                  />
+              )}
+
+              {/* STEP 3: Yahan par Add button ya Quantity Controller dikhao */}
+              <div className="absolute -bottom-2">
+                {quantity === 0 ? (
+                  <button
+                    className="px-4 py-1.5 text-sm font-semibold text-green-600 bg-white border border-gray-300 rounded-lg shadow-md hover:shadow-lg active:scale-95"
+                    onClick={() => handleAddItem(item)}
+                  >
+                    ADD
+                  </button>
+                ) : (
+                  <div className="flex items-center justify-between w-[90px] px-2 py-1.5 text-sm font-semibold bg-white border border-gray-300 rounded-lg shadow-md">
+                    <button
+                      className="text-lg font-bold text-red-500"
+                      onClick={() => handleDecrement(item.card.info.id)}
+                    >
+                      -
+                    </button>
+                    <span className="text-green-600">{quantity}</span>
+                    <button
+                      className="text-lg font-bold text-green-600"
+                      onClick={() => handleIncrement(item.card.info.id)}
+                    >
+                      +
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };
 
 export default ItemList;
-
