@@ -27,12 +27,12 @@ const Header = () => {
 
       {/* Right Side Container for Nav, Cart, and Hamburger */}
       <div className="flex items-center gap-4 md:gap-6">
-        {/* Nav Items (Hidden on mobile, visible on desktop) */}
+        {/* Nav Items */}
         <nav
           className={
             menuOpen
-              ? "flex flex-col absolute top-20 right-4 bg-white shadow-lg rounded-lg p-4 gap-2" // This is the mobile dropdown menu style
-              : "hidden md:flex md:flex-row md:items-center" // Hidden on mobile, visible as a row on desktop
+              ? "flex flex-col absolute top-20 right-4 bg-white shadow-lg rounded-lg p-4 gap-2"
+              : "hidden md:flex md:flex-row md:items-center"
           }
         >
           <ul className="flex flex-col gap-2 font-medium md:flex-row md:items-center md:gap-6">
@@ -63,13 +63,18 @@ const Header = () => {
           </ul>
         </nav>
 
-        {/* Cart Icon (Always Visible) */}
-        <div className="text-xl font-bold hover:text-orange-500">
-          <Link to="/cart" className="flex items-center gap-1">
-            🛒
-            <span className="text-base">({cartItems.length})</span>
-          </Link>
-        </div>
+        {/* ==================================================== */}
+        {/* == NEW: Cart Icon with Red Notification Badge == */}
+        <Link to="/cart" className="relative">
+          <span className="text-3xl">🛒</span>
+          {cartItems.length > 0 && (
+            <span className="absolute top-[-5px] right-[-10px] flex h-6 w-6 items-center justify-center rounded-full bg-red-600 text-xs font-bold text-white">
+              {cartItems.length}
+            </span>
+          )}
+        </Link>
+        {/* ==================================================== */}
+
 
         {/* Hamburger Icon (Visible on mobile only) */}
         <button
