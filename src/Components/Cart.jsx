@@ -9,7 +9,7 @@ const cart = () => {
     dispatch(clearCart());
   };
   return (
-    <>
+    <> 
     <div>
       <div className="w-6/12 p-4 m-auto text-center max-sm:w-10/12">
         {<ItemList items={cartItems} />}
