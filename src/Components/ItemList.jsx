@@ -5,11 +5,10 @@ import CDN_URL  from "../utils/constants";
 const ItemList = ({ items }) => {
   const dispatch = useDispatch();
 
-  // STEP 1: Redux store se cart ke saare items nikal lo.
-  // useSelector store ke saath ek connection banata hai. Jab bhi cartItems badlega, component apne aap update ho jayega.
+ 
   const cartItems = useSelector((store) => store.cart.items);
 
-  // Naye handlers + aur - buttons ke liye
+  
   const handleIncrement = (itemId) => {
     dispatch(incrementQuantity({ id: itemId }));
   };
@@ -26,7 +25,7 @@ const ItemList = ({ items }) => {
   return (
     <div className="pt-2">
       {items.map((item) => {
-        // STEP 2: Har item ke liye check karo ki woh cart mein hai ya nahi.
+       
         const cartItem = cartItems.find(
           (ci) => ci.card.info.id === item.card.info.id
         );
@@ -37,7 +36,7 @@ const ItemList = ({ items }) => {
             key={item.card.info.id}
             className="flex items-center justify-between p-2 my-2 text-left border-b-2 border-gray-200 last:border-none"
           >
-            {/* LEFT PART: Item Details */}
+       
             <div className="w-9/12 pr-4">
               <div className="py-2">
                 <span className="font-semibold text-gray-800">
@@ -52,7 +51,7 @@ const ItemList = ({ items }) => {
               </p>
             </div>
 
-            {/* RIGHT PART: Image and Button */}
+          
             <div className="relative flex flex-col items-center justify-center w-3/12">
               {item.card.info.imageId && (
                  <img
@@ -62,7 +61,7 @@ const ItemList = ({ items }) => {
                   />
               )}
 
-              {/* STEP 3: Yahan par Add button ya Quantity Controller dikhao */}
+            
               <div className="absolute -bottom-2">
                 {quantity === 0 ? (
                   <button
