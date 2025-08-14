@@ -51,7 +51,7 @@ const ItemList = ({ items }) => {
               </p>
             </div>
 
-          
+            / 
             <div className="relative flex flex-col items-center justify-center w-3/12">
               {item.card.info.imageId && (
                  <img
