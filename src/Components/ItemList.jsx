@@ -62,25 +62,25 @@ const ItemList = ({ items }) => {
               )}
 
             
-              <div className="absolute -bottom-2">
+              <div className="absolute bottom-0 ">
                 {quantity === 0 ? (
                   <button
-                    className="px-4 py-1.5 text-sm font-semibold text-green-600 bg-white border border-gray-300 rounded-lg shadow-md hover:shadow-lg active:scale-95"
+                    className="px-4   py-1.5  cursor-pointer text-sm font-semibold text-green-600 bg-white border border-gray-300 rounded-lg shadow-md hover:shadow-lg active:scale-95"
                     onClick={() => handleAddItem(item)}
                   >
                     ADD
                   </button>
                 ) : (
-                  <div className="flex items-center justify-between w-[90px] px-2 py-1.5 text-sm font-semibold bg-white border border-gray-300 rounded-lg shadow-md">
+                  <div className="flex items-center cursor-pointer justify-between w-[90px] px-2 py-1.5 text-sm font-semibold bg-white border border-gray-300 rounded-lg shadow-md">
                     <button
-                      className="text-lg font-bold text-red-500"
+                      className="text-lg font-bold text-red-500 cursor-pointer"
                       onClick={() => handleDecrement(item.card.info.id)}
                     >
                       -
                     </button>
-                    <span className="text-green-600">{quantity}</span>
+                    <span className="text-green-600 ">{quantity}</span>
                     <button
-                      className="text-lg font-bold text-green-600"
+                      className="text-lg font-bold text-green-600 cursor-pointer"
                       onClick={() => handleIncrement(item.card.info.id)}
                     >
                       +
