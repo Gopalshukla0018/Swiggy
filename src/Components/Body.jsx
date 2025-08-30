@@ -99,8 +99,6 @@
 
 // with framer motion  ----
 
-
-
 import RestaurentCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import { RES_URL } from "../utils/constants";
@@ -109,23 +107,6 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Search from "./Search";
 import { motion } from "framer-motion";
-
-// Variants for animation
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12, // ek ek card delay se aaye
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
-};
 
 const Body = () => {
   const [Listofrestaurant, setListofrestaurant] = useState([]);
@@ -156,9 +137,9 @@ const Body = () => {
     );
   }
 
-  return Listofrestaurant.length === 0 ? (
-    <Shimmer />
-  ) : (
+  if (Listofrestaurant.length === 0) return <Shimmer />;
+
+  return (
     <div className="px-4">
       {/* Top Section */}
       <div className="flex flex-col items-start justify-between gap-4 p-4 md:flex-row md:items-center">
@@ -188,27 +169,24 @@ const Body = () => {
         </div>
       </div>
 
-      {/* Cards Section with Animation */}
-      <motion.div
-        className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-        variants={containerVariants}
-        initial="hidden"
-        animate="show"
-      >
+      {/* Cards Section with scroll animation */}
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filteredRestaurant.map((restaurant) => (
           <motion.div
             key={restaurant.info.id}
-            variants={cardVariants}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }} // triggers when 20% of card is visible
+            transition={{ duration: 0.5, ease: "easeOut" }}
             whileHover={{ scale: 1.04, y: -5 }}
             whileTap={{ scale: 0.97 }}
-            transition={{ type: "spring", stiffness: 250, damping: 18 }}
           >
             <Link to={"/restaurant/" + restaurant.info.id}>
               <RestaurentCard resData={restaurant} />
             </Link>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 };
